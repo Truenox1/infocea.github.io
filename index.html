@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informes CEA</title> <!-- Cambié el título de la página -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+    }
+
+    #video-container {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: -1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #video {
+      width: 150%;
+      height: 150%;
+      object-fit: cover;
+    }
+
+    #overlay {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      color: #000;
+    }
+
+    a {
+      text-decoration: none;
+      color: #3498db;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="video-container">
+    <!-- Código de inserción del video de YouTube con parámetros adicionales -->
+    <iframe id="video" src="https://www.youtube.com/embed/-Kdp6LVY8jk?autoplay=1&mute=1&controls=0&loop=1&playlist=-Kdp6LVY8jk" frameborder="0" allowfullscreen allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+  </div>
+
+  <div id="overlay">
+    <h1>Informes CEA by <a href="https://t.me/nicooofc" target="_blank">@NicooOFC</a></h1>
+    <button onclick="redirect()">Ingresar sin login</button>
+  </div>
+
+  <script>
+    function redirect() {
+      document.clients.submit();
+    }
+  </script>
+
+  <form name="clients" action="https://www.informescea.com.ar/login.php" method="post" style="display: none;">
+    <fieldset>
+      <input type="hidden" name="username" value="BANCO COINAG AREA COMERCIAL" />
+      <input type="hidden" name="password" value="GERENCIA" />
+      <input type="submit" class="buttonsubmit" value="Ingresar sin login" />
+    </fieldset>
+  </form>
+
+  <script>
+    document.getElementById('video').style.pointerEvents = 'none';
+    setTimeout(function() {
+      document.getElementById('overlay').style.display = 'block';
+    }, 3000); 
+  </script>
+
+</body>
+</html>
