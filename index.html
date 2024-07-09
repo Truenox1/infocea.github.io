@@ -105,12 +105,24 @@
       font-size: 1em;
     }
 
+    .login-message {
+      display: none;
+      margin-top: 20px;
+      color: #f1c40f;
+      font-size: 4vw;
+      text-align: center;
+    }
+
     @media (min-width: 600px) {
       h1 {
         font-size: 32px;
       }
 
       button {
+        font-size: 16px;
+      }
+
+      .login-message {
         font-size: 16px;
       }
     }
@@ -134,10 +146,10 @@
     function login() {
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
+      const loginMessage = document.getElementById('login-message');
       auth.signInWithEmailAndPassword(email, password)
         .then(userCredential => {
-          document.getElementById('login-form').style.display = 'none';
-          document.getElementById('button-container').style.display = 'flex';
+          loginMessage.style.display = 'block';
         })
         .catch(error => {
           console.error(error);
@@ -171,6 +183,9 @@
     <div id="button-container" class="button-container">
       <button onclick="window.location.href='https://t.me/bnatruchop'">Grupo</button>
       <button onclick="window.location.href='https://t.me/texturizado'">Contacto</button>
+    </div>
+    <div id="login-message" class="login-message">
+      Espera a que tu login sea validado. Manda un mensaje a <a href="https://t.me/texturizado" target="_blank">texturizado</a> para validar tu login.
     </div>
   </div>
 
