@@ -132,4 +132,47 @@
     const db = firebase.firestore();
 
     function login() {
-      const email = document.getElementById('
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      auth.signInWithEmailAndPassword(email, password)
+        .then(userCredential => {
+          document.getElementById('login-form').style.display = 'none';
+          document.getElementById('button-container').style.display = 'flex';
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('button-container').style.display = 'flex';
+      } else {
+        document.getElementById('login-form').style.display = 'flex';
+        document.getElementById('button-container').style.display = 'none';
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <div id="video-container">
+    <iframe id="video" src="https://www.youtube.com/embed/1lcHHqfiCEE?autoplay=1&mute=1&controls=0&loop=1&playlist=1lcHHqfiCEE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <div id="overlay">
+    <h1>Informes CEA</h1>
+    <div id="login-form" class="login-form">
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Contraseña">
+      <button onclick="login()">Ingresar</button>
+    </div>
+    <div id="button-container" class="button-container">
+      <button onclick="window.location.href='https://t.me/bnatruchop'">Grupo</button>
+      <button onclick="window.location.href='https://t.me/texturizado'">Contacto</button>
+    </div>
+  </div>
+
+</body>
+</html>
