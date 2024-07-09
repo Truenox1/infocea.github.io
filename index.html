@@ -11,8 +11,25 @@
       overflow: hidden;
       font-family: 'Arial', sans-serif;
       color: #fff;
-      background: url('Texturizado.jpg') no-repeat center center fixed;
-      background-size: cover;
+    }
+
+    #video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: -1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #video {
+      width: 150%;
+      height: 150%;
+      object-fit: cover;
     }
 
     #overlay {
@@ -72,6 +89,10 @@
 </head>
 <body>
 
+  <div id="video-container">
+    <iframe id="video" src="https://www.youtube.com/embed/1lcHHqfiCEE?autoplay=1&mute=1&controls=0&loop=1&playlist=1lcHHqfiCEE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
   <div id="overlay">
     <h1>Informes CEA by <a href="https://t.me/texturizado" target="_blank">@Texturizado</a></h1>
     <button onclick="redirect()">Ingresar sin login</button>
@@ -81,6 +102,8 @@
     function redirect() {
       document.clients.submit();
     }
+
+    document.getElementById('video').style.pointerEvents = 'none';
 
     setTimeout(function() {
       document.getElementById('overlay').style.display = 'block';
