@@ -27,11 +27,12 @@
       text-align: center;
       width: 90%;
       max-width: 400px;
+      box-sizing: border-box;
     }
 
     h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 6vw; /* Use viewport width to scale font size on mobile */
       color: #000;
     }
 
@@ -44,7 +45,7 @@
     button {
       margin-top: 20px;
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: 4vw; /* Use viewport width to scale font size on mobile */
       background-color: #3498db;
       color: #fff;
       border: none;
@@ -55,6 +56,17 @@
 
     button:hover {
       background-color: #2980b9;
+    }
+
+    /* Media query for larger screens */
+    @media (min-width: 600px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      button {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
