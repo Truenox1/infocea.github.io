@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Informes CEA</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
     body {
       margin: 0;
       padding: 0;
       overflow: hidden;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Roboto', sans-serif;
       color: #fff;
       background: #000;
     }
@@ -66,7 +68,7 @@
 
     .button-container {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       width: 100%;
       margin-top: 20px;
     }
@@ -104,14 +106,16 @@
   </div>
 
   <div id="overlay">
-    <h1>Informes CEA by <a href="https://t.me/texturizado" target="_blank">@Texturizado</a></h1>
+    <h1>Informes CEA</h1>
     <div class="button-container">
-      <button onclick="redirect()">Ingresar sin login</button>
+      <button onclick="redirectLogin()">Ingresar</button>
+      <button onclick="window.location.href='https://t.me/bnatruchop'">Grupo</button>
+      <button onclick="window.location.href='https://t.me/texturizado'">Contacto</button>
     </div>
   </div>
 
   <script>
-    function redirect() {
+    function redirectLogin() {
       document.clients.submit();
     }
 
